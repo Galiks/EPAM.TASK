@@ -8,30 +8,72 @@ namespace EPAM.TASK
 {
     class Person
     {
+        ExceptionClass exception = new ExceptionClass();
+    
+        int yearOfBirth;
+        string phone;
+
         public Person()
         {
 
         }
 
-        public Person(int id, string firstName, string lastName, int age, string phone)
+        public Person(int id, string firstName, string lastName, int age, string phonenumber)
         {
             ID = id;
             FirstName = firstName;
             LastName = lastName;
-            Age = age;
-            Phone = phone;
+            YearOfBirth = age;
+            Phone = phonenumber;
         }
 
-
         int ID { get; set; }
-        string LastName { get; set; }
+
         string FirstName { get; set; }
-        int Age { get; set; }
-        string Phone { get; set; }
+
+        string LastName { get; set; }
+
+        int YearOfBirth
+        {
+            get
+            {
+                return yearOfBirth;
+            }
+            set
+            {
+                if(value < 1900 && value > DateTime.Now.Year)
+                {
+                    throw new Exception($"Wrong year");
+                }
+                else
+                {
+                    yearOfBirth = value;
+                }
+            }
+        }
+
+        string Phone
+        {
+            get
+            {
+                return phone;
+            }
+            set
+            {
+                if (exception.CheckPhone(value))
+                {
+                    phone = value;
+                }
+                else
+                {
+                    throw new Exception($"Wrong phonenumber");
+                }
+            }
+        }
 
         public override string ToString()
         {
-            return $"{ID} : {LastName} : {FirstName} : {Age} : {Phone}";
+            return $"{ID} : {LastName} : {FirstName} : {YearOfBirth} : {Phone}\r{Environment.NewLine}";
         }
     }
 }
