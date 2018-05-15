@@ -10,15 +10,23 @@ namespace EPAM.TASK
 
     class WriteAndReadInformation
     {
-        private const int NumberOfInformation = 4;
+        private string PathToFile = "text.txt";
 
         public WriteAndReadInformation()
         {
 
         }
 
-        public void ChooseCommand()
+        public void StartProgramm()
         {
+            CreateFile();
+            ChooseCommand();
+        }
+
+        private void ChooseCommand()
+        { 
+            RemoveEmptySpaceFromFile();
+
             Console.WriteLine($"{Environment.NewLine}Hello, user. What do you want?{Environment.NewLine}1 - Write to file{Environment.NewLine}2 - Read from file{Environment.NewLine}3 - Delete information{Environment.NewLine}4 - Help{Environment.NewLine}5 - Exit{Environment.NewLine}");
 
             try
@@ -27,7 +35,7 @@ namespace EPAM.TASK
                 switch (key.Key)
                 {
                     case (ConsoleKey.D1):
-                        AddInfo();
+                        WriteInfo();
                         break;
                     case (ConsoleKey.D2):
                         ReadInfo();
@@ -36,7 +44,7 @@ namespace EPAM.TASK
                         DeleteInfo();
                         break;
                     case (ConsoleKey.D4):
-                        Console.WriteLine($"1 - You can add information in file{Environment.NewLine}2 - You can read information from file{Environment.NewLine}3 - Information about command{Environment.NewLine}4 - Close programm{Environment.NewLine}");
+                        Console.WriteLine($"1 - You can add information in file{Environment.NewLine}2 - You can read information from file{Environment.NewLine}3 - You can delete information from file{Environment.NewLine}4 - Information about command{Environment.NewLine}5 - Close programm{Environment.NewLine}");
                         ChooseCommand();
                         break;
                     case (ConsoleKey.D5):
@@ -85,7 +93,7 @@ namespace EPAM.TASK
             }
         }
 
-        private void AddInfo()
+        private void WriteInfo()
         {
             Console.WriteLine($"Enter data");
             Console.Write($"First Name : ");
@@ -93,22 +101,21 @@ namespace EPAM.TASK
             Console.Write($"Last Name : ");
             string lastName = Console.ReadLine();
             Console.Write($"Year of birth : ");
-            int age = Int32.Parse(Console.ReadLine());
+            int yearOfBirth = int.Parse(Console.ReadLine());
             Console.Write($"Phonenumber : ");
             string phone = Console.ReadLine();
 
-          
             Random ramdom = new Random();
             int i = ramdom.Next();
-            Person p = new Person(i, firstName, lastName, age, phone);
-            File.AppendAllText("text.txt",p.ToString());            
+            Person p = new Person(i, firstName, lastName, yearOfBirth, phone);
+            File.AppendAllText(PathToFile,p.ToString());            
 
             ChooseCommand();
         }
 
         private void ReadInfo()
         {
-            using (StreamReader file = new StreamReader("text.txt"))
+            using (StreamReader file = new StreamReader(PathToFile))
             {
                 string line;
                 while ((line = file.ReadLine()) != null)
@@ -121,38 +128,12 @@ namespace EPAM.TASK
 
         private void DeleteInfo()
         {
-            Console.WriteLine($"Find information, which you want delete{Environment.NewLine}1 - First Name{Environment.NewLine}2 - Last Name{Environment.NewLine}3 - Year of birth{Environment.NewLine}4 - Phonenumber{Environment.NewLine}");
+            Console.WriteLine($"Find information, which you want delete{Environment.NewLine}You can write First Name or Last Name or Year of birth or Phonenumber{Environment.NewLine}");
 
-            ConsoleKeyInfo key = Console.ReadKey();
-
-            switch (key.Key)
-            {
-                case ConsoleKey.D1:
-                    Console.WriteLine($"First Name : ");
-                    string firstName = Console.ReadLine();
-                    DeleteHelper(firstName);
-                    break;
-                case ConsoleKey.D2:
-                    Console.WriteLine($"Last Name : ");
-                    string lastName = Console.ReadLine();
-                    DeleteHelper(lastName);
-                    break;
-                case ConsoleKey.D3:
-                    Console.WriteLine($"Year of birth : ");
-                    string yearOfBirth = Console.ReadLine();
-                    DeleteHelper(yearOfBirth);
-                    break;
-                case ConsoleKey.D4:
-                    Console.WriteLine($"Phonenumber : ");
-                    string phonenumber = Console.ReadLine();
-                    DeleteHelper(phonenumber);
-                    break;
-                default:
-                    Console.WriteLine($"I don't know this command. Try again.");
-                    ExitFromProgramm();
-                    break;
-            }
-
+            string info = Console.ReadLine();
+            
+            DeleteHelper(info);
+            
             ChooseCommand();
         }
 
@@ -162,7 +143,7 @@ namespace EPAM.TASK
             {
                 List<string> lines = new List<string>();
 
-                using (StreamReader read = new StreamReader("text.txt"))
+                using (StreamReader read = new StreamReader(PathToFile))
                 {
                     string line;
                     while ((line = read.ReadLine()) != null)
@@ -173,7 +154,7 @@ namespace EPAM.TASK
                 //str - позиция удаления
                 int str = FindInfo(finderWord, lines);
 
-                using (StreamWriter write = new StreamWriter("text.txt"))
+                using (StreamWriter write = new StreamWriter(PathToFile))
                 {
                     for (int i = 0; i < lines.Count; i++)
                     {
@@ -183,6 +164,7 @@ namespace EPAM.TASK
                         }
                     }
                 }
+                RemoveEmptySpaceFromFile();
             }
             catch (Exception e)
             {
@@ -202,7 +184,20 @@ namespace EPAM.TASK
                     }
                 }
             }
+            ChooseCommand();
             return 0;
+        }
+
+        private void RemoveEmptySpaceFromFile()
+        {
+            var lines = File.ReadAllLines(PathToFile).Where(arg => !string.IsNullOrWhiteSpace(arg));
+            File.WriteAllLines(PathToFile, lines);
+        }
+
+        private void CreateFile()
+        {
+            FileStream fs = new FileStream(PathToFile, FileMode.OpenOrCreate);
+            fs.Close();
         }
     }
 }

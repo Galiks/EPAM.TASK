@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace EPAM.TASK
 {
-    class Person
+    public class Person
     {
-        ExceptionClass exception = new ExceptionClass();
+        private ExceptionClass exception = new ExceptionClass();
     
-        int yearOfBirth;
-        string phone;
+        private int yearOfBirth;
+        private string phone;
 
         public Person()
         {
@@ -27,13 +27,13 @@ namespace EPAM.TASK
             Phone = phonenumber;
         }
 
-        int ID { get; set; }
+        private int ID { get; set; }
 
-        string FirstName { get; set; }
+        private string FirstName { get; set; }
 
-        string LastName { get; set; }
+        private string LastName { get; set; }
 
-        int YearOfBirth
+        private int YearOfBirth
         {
             get
             {
@@ -41,7 +41,7 @@ namespace EPAM.TASK
             }
             set
             {
-                if(value < 1900 && value > DateTime.Now.Year)
+                if(value < 1900 || value > DateTime.Now.Year)
                 {
                     throw new Exception($"Wrong year");
                 }
@@ -52,7 +52,7 @@ namespace EPAM.TASK
             }
         }
 
-        string Phone
+        private string Phone
         {
             get
             {

@@ -2,17 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace EPAM.TASK
 {
-    class ExceptionClass
+    public class ExceptionClass
     {
         public bool CheckPhone(string number)
         {
-            if (!CheckCorrect(number) && !CheckLength(number))
+            if (!CheckCorrect(number))
             {
-                return false;
+                if (!CheckLength(number))
+                {
+                    return false;
+                }
             }
             return true;
         }
@@ -20,7 +24,7 @@ namespace EPAM.TASK
         private bool CheckLength(string number)
         {
             if (number.Length != 8 || number.Length != 6)
-            {
+            {             
                 return false;
             }
             return true;
