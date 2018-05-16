@@ -10,7 +10,7 @@ namespace EPAM.TASK
 
     class WriteAndReadInformation
     {
-        private string PathToFile = "text.txt";
+        private const string PathToFile = "text.txt";
 
         public WriteAndReadInformation()
         {
@@ -21,6 +21,12 @@ namespace EPAM.TASK
         {
             CreateFile();
             ChooseCommand();
+        }
+
+        private void CreateFile()
+        {
+            FileStream fs = new FileStream(PathToFile, FileMode.OpenOrCreate);
+            fs.Close();
         }
 
         private void ChooseCommand()
@@ -36,12 +42,15 @@ namespace EPAM.TASK
                 {
                     case (ConsoleKey.D1):
                         WriteInfo();
+                        ChooseCommand();
                         break;
                     case (ConsoleKey.D2):
                         ReadInfo();
+                        ChooseCommand();
                         break;
                     case (ConsoleKey.D3):
                         DeleteInfo();
+                        ChooseCommand();
                         break;
                     case (ConsoleKey.D4):
                         Console.WriteLine($"1 - You can add information in file{Environment.NewLine}2 - You can read information from file{Environment.NewLine}3 - You can delete information from file{Environment.NewLine}4 - Information about command{Environment.NewLine}5 - Close programm{Environment.NewLine}");
@@ -63,36 +72,6 @@ namespace EPAM.TASK
             }
         }
 
-        private void ExitFromProgramm()
-        {
-            Console.WriteLine($"Are you sure you want to exit? (Y/N)");
-
-            try
-            {
-                ConsoleKeyInfo key = Console.ReadKey(intercept: true);
-                switch (key.Key)
-                {
-                    case (ConsoleKey.Y):
-                        Console.WriteLine($"Bye");
-                        Environment.Exit(0);
-                        break;
-                    case (ConsoleKey.N):
-                        Console.WriteLine("I know it");
-                        ChooseCommand();
-                        break;
-                    default:
-                        Console.WriteLine($"I don't know this command. Try again.");
-                        ExitFromProgramm();
-                        break;
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine($"Oppps. Throw Exception - {e.Message}{Environment.NewLine}Try again.");
-                ExitFromProgramm();
-            }
-        }
-
         private void WriteInfo()
         {
             Console.WriteLine($"Enter data");
@@ -109,8 +88,6 @@ namespace EPAM.TASK
             int i = ramdom.Next();
             Person p = new Person(i, firstName, lastName, yearOfBirth, phone);
             File.AppendAllText(PathToFile,p.ToString());            
-
-            ChooseCommand();
         }
 
         private void ReadInfo()
@@ -123,7 +100,6 @@ namespace EPAM.TASK
                     Console.WriteLine(line);
                 }
             }
-            ChooseCommand();
         }
 
         private void DeleteInfo()
@@ -133,8 +109,6 @@ namespace EPAM.TASK
             string info = Console.ReadLine();
             
             DeleteHelper(info);
-            
-            ChooseCommand();
         }
 
         private void DeleteHelper(string finderWord)
@@ -188,16 +162,40 @@ namespace EPAM.TASK
             return 0;
         }
 
+        private void ExitFromProgramm()
+        {
+            Console.WriteLine($"Are you sure you want to exit? (Y/N)");
+
+            try
+            {
+                ConsoleKeyInfo key = Console.ReadKey(intercept: true);
+                switch (key.Key)
+                {
+                    case (ConsoleKey.Y):
+                        Console.WriteLine($"Bye");
+                        Environment.Exit(0);
+                        break;
+                    case (ConsoleKey.N):
+                        Console.WriteLine("I know it");
+                        ChooseCommand();
+                        break;
+                    default:
+                        Console.WriteLine($"I don't know this command. Try again.");
+                        ExitFromProgramm();
+                        break;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Oppps. Throw Exception - {e.Message}{Environment.NewLine}Try again.");
+                ExitFromProgramm();
+            }
+        }
+
         private void RemoveEmptySpaceFromFile()
         {
             var lines = File.ReadAllLines(PathToFile).Where(arg => !string.IsNullOrWhiteSpace(arg));
             File.WriteAllLines(PathToFile, lines);
-        }
-
-        private void CreateFile()
-        {
-            FileStream fs = new FileStream(PathToFile, FileMode.OpenOrCreate);
-            fs.Close();
         }
     }
 }

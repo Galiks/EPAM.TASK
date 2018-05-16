@@ -9,23 +9,45 @@ namespace EPAM.TASK
 {
     public class ExceptionClass
     {
+        private const string Pattern = @"\+?\d{11}";
+
         public bool CheckPhone(string number)
         {
-            if (!CheckCorrect(number))
+            if (!CheckPhoneWithRegex(number))
             {
-                if (!CheckLength(number))
+                if (CheckLength(number))
+                {
+                    if (!CheckCorrect(number))
+                    {
+                        return false;
+                    }
+                }
+                else
                 {
                     return false;
                 }
             }
+
             return true;
+        }
+
+        private bool CheckPhoneWithRegex(string number)
+        {
+            if(Regex.IsMatch(number, Pattern))
+            {
+                return true;
+            }
+            return false;
         }
 
         private bool CheckLength(string number)
         {
-            if (number.Length != 8 || number.Length != 6)
-            {             
-                return false;
+            if (number.Length != 11)
+            {
+                if (number.Length != 6)
+                { 
+                    return false;
+                }
             }
             return true;
         }
