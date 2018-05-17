@@ -7,14 +7,29 @@ using System.Threading.Tasks;
 
 namespace EPAM.TASK
 {
-
-    class WriteAndReadInformation
+    /// <summary>
+    /// Class WorkWithFile
+    /// works with file.
+    /// He has methods for add and delete informations:
+    /// <seealso cref="WriteInfo"/> and <seealso cref="DeleteInfo"/>
+    /// Also class has method for read information from file:
+    /// <seealso cref="ReadInfo"/>
+    /// </summary>
+    class WorkWithFile
     {
+        /// <summary>
+        /// For path use <seealso cref="PathToFile"/>
+        /// Constructor calls method <seealso cref="StartProgramm"/>,
+        /// which calls two methods:
+        /// <seealso cref="CreateFile"/> - creates file
+        /// and
+        /// <seealso cref="ChooseCommand"/> - method for choose command  
+        /// </summary>
         private const string PathToFile = "text.txt";
 
-        public WriteAndReadInformation()
+        public WorkWithFile()
         {
-
+           StartProgramm();
         }
 
         public void StartProgramm()
@@ -23,12 +38,18 @@ namespace EPAM.TASK
             ChooseCommand();
         }
 
+        /// <summary>
+        /// Method <seealso cref="CreateFile"/> is used to create file.
+        /// </summary>
         private void CreateFile()
         {
             FileStream fs = new FileStream(PathToFile, FileMode.OpenOrCreate);
             fs.Close();
         }
 
+        /// <summary>
+        /// Method <seealso cref="ChooseCommand"/> is used to choose command/method.
+        /// </summary>
         private void ChooseCommand()
         { 
             RemoveEmptySpaceFromFile();
@@ -72,6 +93,12 @@ namespace EPAM.TASK
             }
         }
 
+        /// <summary>
+        /// Method <seealso cref="WriteInfo"/> write information to the file.
+        /// User must write information in console:
+        /// First Name, Last Name, Year of Birth and Phonenumber.
+        /// Also the random created ID is written to the file.
+        /// </summary>
         private void WriteInfo()
         {
             Console.WriteLine($"Enter data");
@@ -90,6 +117,10 @@ namespace EPAM.TASK
             File.AppendAllText(PathToFile,p.ToString());            
         }
 
+        /// <summary>
+        /// Method <seealso cref="ReadInfo"/> read information from file
+        /// and write her on the console
+        /// </summary>
         private void ReadInfo()
         {
             using (StreamReader file = new StreamReader(PathToFile))
@@ -102,6 +133,12 @@ namespace EPAM.TASK
             }
         }
 
+        /// <summary>
+        /// Method <seealso cref="DeleteInfo"/> delete information from file
+        /// if the entered string was found.
+        /// For simplicity, the method has been split into several smaller methods like
+        /// <seealso cref="DeleteHelper(string)"/> and <seealso cref="FindInfo(string, List{string})"/>
+        /// </summary>
         private void DeleteInfo()
         {
             Console.WriteLine($"Find information, which you want delete{Environment.NewLine}You can write First Name or Last Name or Year of birth or Phonenumber{Environment.NewLine}");
@@ -111,6 +148,13 @@ namespace EPAM.TASK
             DeleteHelper(info);
         }
 
+        /// <summary>
+        /// Method <seealso cref="DeleteHelper(string)"/> takes a string parameter.
+        /// Variable "str" that takes from method <seealso cref="FindInfo(string, List{string})"/>.
+        /// This variable is used to delete information.
+        /// At the end method <seealso cref="RemoveEmptySpaceFromFile"/> delete empty lines in file.
+        /// </summary>
+        /// <param name="finderWord"></param>
         private void DeleteHelper(string finderWord)
         {
             try
@@ -146,6 +190,12 @@ namespace EPAM.TASK
             }
         }
 
+        /// <summary>
+        /// Method <seealso cref="FindInfo(string, List{string})"/> finds line and return number of line.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="lines"></param>
+        /// <returns></returns>
         private int FindInfo(string value, List<string> lines)
         {
             for (int i = 0; i < lines.Count; i++)
@@ -162,6 +212,9 @@ namespace EPAM.TASK
             return 0;
         }
 
+        /// <summary>
+        /// Method <seealso cref="ExitFromProgramm"/> is used to exit from programm
+        /// </summary>
         private void ExitFromProgramm()
         {
             Console.WriteLine($"Are you sure you want to exit? (Y/N)");
@@ -192,6 +245,9 @@ namespace EPAM.TASK
             }
         }
 
+        /// <summary>
+        /// Method <seealso cref="RemoveEmptySpaceFromFile"/> is used to delete empty lines in file.
+        /// </summary>
         private void RemoveEmptySpaceFromFile()
         {
             var lines = File.ReadAllLines(PathToFile).Where(arg => !string.IsNullOrWhiteSpace(arg));

@@ -11,8 +11,7 @@ namespace EPAM.TASK
     {
         static void Main(string[] args)
         {
-            WriteAndReadInformation file = new WriteAndReadInformation();
-            file.StartProgramm();
+            WorkWithFile file = new WorkWithFile();
         }
     }
 }

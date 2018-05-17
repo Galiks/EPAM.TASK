@@ -1,0 +1,155 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EPAM.TASK</name>
+    </assembly>
+    <members>
+        <member name="T:EPAM.TASK.ExceptionClass">
+            <summary>
+            Class ExceprionClass works with phonenumber.
+            </summary>
+        </member>
+        <member name="F:EPAM.TASK.ExceptionClass.Pattern">
+            <summary>
+            Private constant <seealso cref="F:EPAM.TASK.ExceptionClass.Pattern"/> is used to save regex. 
+            </summary>
+        </member>
+        <member name="M:EPAM.TASK.ExceptionClass.CheckPhone(System.String)">
+            <summary>
+            Main method <seealso cref="M:EPAM.TASK.ExceptionClass.CheckPhone(System.String)"/> is used for full check phonenumber.
+            He uses other methods as <seealso cref="M:EPAM.TASK.ExceptionClass.CheckCorrect(System.String)"/>,
+            <seealso cref="M:EPAM.TASK.ExceptionClass.CheckLength(System.String)"/> and
+            <seealso cref="M:EPAM.TASK.ExceptionClass.CheckPhoneWithRegex(System.String)"/>
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPAM.TASK.ExceptionClass.CheckPhoneWithRegex(System.String)">
+            <summary>
+            Method <seealso cref="M:EPAM.TASK.ExceptionClass.CheckPhoneWithRegex(System.String)"/> checks phonenumber using regex
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPAM.TASK.ExceptionClass.CheckLength(System.String)">
+            <summary>
+            Method <seealso cref="M:EPAM.TASK.ExceptionClass.CheckLength(System.String)"/> checks phonenumber's length
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPAM.TASK.ExceptionClass.CheckCorrect(System.String)">
+            <summary>
+            Method <seealso cref="M:EPAM.TASK.ExceptionClass.CheckCorrect(System.String)"/> checks phonenumber for correctness.
+            All char must be digit
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EPAM.TASK.Person">
+            <summary>
+            Class Person is usual class there the human data are registered.
+            </summary>
+        </member>
+        <member name="M:EPAM.TASK.Person.#ctor">
+            <summary>
+            Empty constructor
+            </summary>
+        </member>
+        <member name="M:EPAM.TASK.Person.#ctor(System.Int32,System.String,System.String,System.Int32,System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="id"></param>
+            <param name="firstName"></param>
+            <param name="lastName"></param>
+            <param name="age"></param>
+            <param name="phonenumber"></param>
+        </member>
+        <member name="M:EPAM.TASK.Person.ToString">
+            <summary>
+            Override method for output data.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:EPAM.TASK.WorkWithFile">
+            <summary>
+            Class WorkWithFile
+            works with file.
+            He has methods for add and delete informations:
+            <seealso cref="M:EPAM.TASK.WorkWithFile.WriteInfo"/> and <seealso cref="M:EPAM.TASK.WorkWithFile.DeleteInfo"/>
+            Also class has method for read information from file:
+            <seealso cref="M:EPAM.TASK.WorkWithFile.ReadInfo"/>
+            </summary>
+        </member>
+        <member name="F:EPAM.TASK.WorkWithFile.PathToFile">
+            <summary>
+            For path use <seealso cref="F:EPAM.TASK.WorkWithFile.PathToFile"/>
+            Constructor calls method <seealso cref="M:EPAM.TASK.WorkWithFile.StartProgramm"/>,
+            which calls two methods:
+            <seealso cref="M:EPAM.TASK.WorkWithFile.CreateFile"/> - creates file
+            and
+            <seealso cref="M:EPAM.TASK.WorkWithFile.ChooseCommand"/> - method for choose command  
+            </summary>
+        </member>
+        <member name="M:EPAM.TASK.WorkWithFile.CreateFile">
+            <summary>
+            Method <seealso cref="M:EPAM.TASK.WorkWithFile.CreateFile"/> is used to create file.
+            </summary>
+        </member>
+        <member name="M:EPAM.TASK.WorkWithFile.ChooseCommand">
+            <summary>
+            Method <seealso cref="M:EPAM.TASK.WorkWithFile.ChooseCommand"/> is used to choose command/method.
+            </summary>
+        </member>
+        <member name="M:EPAM.TASK.WorkWithFile.WriteInfo">
+            <summary>
+            Method <seealso cref="M:EPAM.TASK.WorkWithFile.WriteInfo"/> write information to the file.
+            User must write information in console:
+            First Name, Last Name, Year of Birth and Phonenumber.
+            Also the random created ID is written to the file.
+            </summary>
+        </member>
+        <member name="M:EPAM.TASK.WorkWithFile.ReadInfo">
+            <summary>
+            Method <seealso cref="M:EPAM.TASK.WorkWithFile.ReadInfo"/> read information from file
+            and write her on the console
+            </summary>
+        </member>
+        <member name="M:EPAM.TASK.WorkWithFile.DeleteInfo">
+            <summary>
+            Method <seealso cref="M:EPAM.TASK.WorkWithFile.DeleteInfo"/> delete information from file
+            if the entered string was found.
+            For simplicity, the method has been split into several smaller methods like
+            <seealso cref="M:EPAM.TASK.WorkWithFile.DeleteHelper(System.String)"/> and <seealso cref="M:EPAM.TASK.WorkWithFile.FindInfo(System.String,System.Collections.Generic.List{System.String})"/>
+            </summary>
+        </member>
+        <member name="M:EPAM.TASK.WorkWithFile.DeleteHelper(System.String)">
+            <summary>
+            Method <seealso cref="M:EPAM.TASK.WorkWithFile.DeleteHelper(System.String)"/> takes a string parameter.
+            Variable "str" that takes from method <seealso cref="M:EPAM.TASK.WorkWithFile.FindInfo(System.String,System.Collections.Generic.List{System.String})"/>.
+            This variable is used to delete information.
+            At the end method <seealso cref="M:EPAM.TASK.WorkWithFile.RemoveEmptySpaceFromFile"/> delete empty lines in file.
+            </summary>
+            <param name="finderWord"></param>
+        </member>
+        <member name="M:EPAM.TASK.WorkWithFile.FindInfo(System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            Method <seealso cref="M:EPAM.TASK.WorkWithFile.FindInfo(System.String,System.Collections.Generic.List{System.String})"/> finds line and return number of line.
+            </summary>
+            <param name="value"></param>
+            <param name="lines"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPAM.TASK.WorkWithFile.ExitFromProgramm">
+            <summary>
+            Method <seealso cref="M:EPAM.TASK.WorkWithFile.ExitFromProgramm"/> is used to exit from programm
+            </summary>
+        </member>
+        <member name="M:EPAM.TASK.WorkWithFile.RemoveEmptySpaceFromFile">
+            <summary>
+            Method <seealso cref="M:EPAM.TASK.WorkWithFile.RemoveEmptySpaceFromFile"/> is used to delete empty lines in file.
+            </summary>
+        </member>
+    </members>
+</doc>
