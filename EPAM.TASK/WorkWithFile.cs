@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ChoosePath;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -29,23 +30,24 @@ namespace EPAM.TASK
 
         public WorkWithFile()
         {
-           StartProgramm();
+            ChoosePathForFile ch = new ChoosePathForFile();
+            StartProgramm();
         }
 
-        public void StartProgramm()
+        private void StartProgramm()
         {
-            CreateFile();
+            //CreateFile();
             ChooseCommand();
         }
 
-        /// <summary>
-        /// Method <seealso cref="CreateFile"/> is used to create file.
-        /// </summary>
-        private void CreateFile()
-        {
-            FileStream fs = new FileStream(PathToFile, FileMode.OpenOrCreate);
-            fs.Close();
-        }
+        ///// <summary>
+        ///// Method <seealso cref="CreateFile"/> is used to create file.
+        ///// </summary>
+        //private void CreateFile()
+        //{
+        //    FileStream fs = new FileStream(PathToFile, FileMode.OpenOrCreate);
+        //    fs.Close();
+        //}
 
         /// <summary>
         /// Method <seealso cref="ChooseCommand"/> is used to choose command/method.

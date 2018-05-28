@@ -1,0 +1,7 @@
+E:\Documents\Visual Studio 2017\Projects\OLD.EPAM.TASK\EPAM.TASK\BUS.Logic\bin\Debug\BUS.Logic.dll
+E:\Documents\Visual Studio 2017\Projects\OLD.EPAM.TASK\EPAM.TASK\BUS.Logic\bin\Debug\BUS.Logic.pdb
+E:\Documents\Visual Studio 2017\Projects\OLD.EPAM.TASK\EPAM.TASK\BUS.Logic\bin\Debug\ILogic.dll
+E:\Documents\Visual Studio 2017\Projects\OLD.EPAM.TASK\EPAM.TASK\BUS.Logic\bin\Debug\ILogic.pdb
+E:\Documents\Visual Studio 2017\Projects\OLD.EPAM.TASK\EPAM.TASK\BUS.Logic\obj\Debug\BUS.Logic.csprojResolveAssemblyReference.cache
+E:\Documents\Visual Studio 2017\Projects\OLD.EPAM.TASK\EPAM.TASK\BUS.Logic\obj\Debug\BUS.Logic.dll
+E:\Documents\Visual Studio 2017\Projects\OLD.EPAM.TASK\EPAM.TASK\BUS.Logic\obj\Debug\BUS.Logic.pdb

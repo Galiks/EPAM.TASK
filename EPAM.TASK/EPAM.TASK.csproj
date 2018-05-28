@@ -52,5 +52,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ChoosePathForFile\ChoosePath.csproj">
+      <Project>{1C371945-1FE0-4D82-8F41-27E68C610190}</Project>
+      <Name>ChoosePath</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CreateUserFile\CreateUserFile.csproj">
+      <Project>{3e94cd59-0864-4927-84a7-f93a2caf260b}</Project>
+      <Name>CreateUserFile</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

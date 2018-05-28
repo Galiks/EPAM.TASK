@@ -1,0 +1,9 @@
+E:\Documents\Visual Studio 2017\Projects\OLD.EPAM.TASK\EPAM.TASK\ChoosePathForFile\bin\Debug\ChoosePathForFile.dll
+E:\Documents\Visual Studio 2017\Projects\OLD.EPAM.TASK\EPAM.TASK\ChoosePathForFile\bin\Debug\ChoosePathForFile.pdb
+E:\Documents\Visual Studio 2017\Projects\OLD.EPAM.TASK\EPAM.TASK\ChoosePathForFile\obj\Debug\ChoosePath.csprojResolveAssemblyReference.cache
+E:\Documents\Visual Studio 2017\Projects\OLD.EPAM.TASK\EPAM.TASK\ChoosePathForFile\obj\Debug\ChoosePathForFile.dll
+E:\Documents\Visual Studio 2017\Projects\OLD.EPAM.TASK\EPAM.TASK\ChoosePathForFile\obj\Debug\ChoosePathForFile.pdb
+E:\Documents\Visual Studio 2017\Projects\OLD.EPAM.TASK\EPAM.TASK\ChoosePathForFile\bin\Debug\CreateUserFile.dll
+E:\Documents\Visual Studio 2017\Projects\OLD.EPAM.TASK\EPAM.TASK\ChoosePathForFile\bin\Debug\CreateUserFile.pdb
+E:\Documents\Visual Studio 2017\Projects\OLD.EPAM.TASK\EPAM.TASK\ChoosePathForFile\bin\Debug\Exceptions.dll
+E:\Documents\Visual Studio 2017\Projects\OLD.EPAM.TASK\EPAM.TASK\ChoosePathForFile\bin\Debug\Exceptions.pdb

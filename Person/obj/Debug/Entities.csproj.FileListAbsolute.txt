@@ -1,0 +1,7 @@
+E:\Documents\Visual Studio 2017\Projects\OLD.EPAM.TASK\EPAM.TASK\Person\bin\Debug\Person.dll
+E:\Documents\Visual Studio 2017\Projects\OLD.EPAM.TASK\EPAM.TASK\Person\bin\Debug\Person.pdb
+E:\Documents\Visual Studio 2017\Projects\OLD.EPAM.TASK\EPAM.TASK\Person\bin\Debug\Exceptions.dll
+E:\Documents\Visual Studio 2017\Projects\OLD.EPAM.TASK\EPAM.TASK\Person\bin\Debug\Exceptions.pdb
+E:\Documents\Visual Studio 2017\Projects\OLD.EPAM.TASK\EPAM.TASK\Person\obj\Debug\Entities.csprojResolveAssemblyReference.cache
+E:\Documents\Visual Studio 2017\Projects\OLD.EPAM.TASK\EPAM.TASK\Person\obj\Debug\Person.dll
+E:\Documents\Visual Studio 2017\Projects\OLD.EPAM.TASK\EPAM.TASK\Person\obj\Debug\Person.pdb

@@ -1,0 +1,4 @@
+E:\Documents\Visual Studio 2017\Projects\OLD.EPAM.TASK\EPAM.TASK\Exceptions\bin\Debug\Exceptions.dll
+E:\Documents\Visual Studio 2017\Projects\OLD.EPAM.TASK\EPAM.TASK\Exceptions\bin\Debug\Exceptions.pdb
+E:\Documents\Visual Studio 2017\Projects\OLD.EPAM.TASK\EPAM.TASK\Exceptions\obj\Debug\Exceptions.dll
+E:\Documents\Visual Studio 2017\Projects\OLD.EPAM.TASK\EPAM.TASK\Exceptions\obj\Debug\Exceptions.pdb

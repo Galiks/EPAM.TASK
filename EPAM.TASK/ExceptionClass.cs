@@ -13,9 +13,11 @@ namespace EPAM.TASK
     public class ExceptionClass
     {
         /// <summary>
-        /// Private constant <seealso cref="Pattern"/> is used to save regex. 
+        /// Private constant <seealso cref="PatternForPhone"/> is used to save regex. 
         /// </summary>
-        private const string Pattern = @"\+?\d{11}";
+        private const string PatternForPhone = @"\+?\d{11}";
+
+        private const string PatternForPath = @"[A-Z]{1}:(\\[A-Za-z0-9]*)*";
 
         /// <summary>
         /// Main method <seealso cref="CheckPhone(string)"/> is used for full check phonenumber.
@@ -41,8 +43,24 @@ namespace EPAM.TASK
                     return false;
                 }
             }
-
             return true;
+        }
+
+        /// <summary>
+        /// Method CheckPathToFile checks path to file using pattern
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        public bool CheckPathToFile(string path)
+        {
+            if(Regex.IsMatch(path, PatternForPath) && !String.IsNullOrEmpty(path))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         /// <summary>
@@ -52,11 +70,14 @@ namespace EPAM.TASK
         /// <returns></returns>
         private bool CheckPhoneWithRegex(string number)
         {
-            if(Regex.IsMatch(number, Pattern))
+            if (Regex.IsMatch(number, PatternForPhone))
             {
                 return true;
             }
-            return false;
+            else
+            {
+                return false;
+            }
         }
 
         /// <summary>

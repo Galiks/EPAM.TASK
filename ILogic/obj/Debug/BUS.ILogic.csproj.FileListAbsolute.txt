@@ -1,0 +1,4 @@
+E:\Documents\Visual Studio 2017\Projects\OLD.EPAM.TASK\EPAM.TASK\ILogic\bin\Debug\ILogic.dll
+E:\Documents\Visual Studio 2017\Projects\OLD.EPAM.TASK\EPAM.TASK\ILogic\bin\Debug\ILogic.pdb
+E:\Documents\Visual Studio 2017\Projects\OLD.EPAM.TASK\EPAM.TASK\ILogic\obj\Debug\ILogic.dll
+E:\Documents\Visual Studio 2017\Projects\OLD.EPAM.TASK\EPAM.TASK\ILogic\obj\Debug\ILogic.pdb

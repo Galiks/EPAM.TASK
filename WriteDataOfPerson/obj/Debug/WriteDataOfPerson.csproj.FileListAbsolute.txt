@@ -1,0 +1,9 @@
+E:\Documents\Visual Studio 2017\Projects\OLD.EPAM.TASK\EPAM.TASK\WriteDataOfPerson\obj\Debug\WriteDataOfPerson.csprojResolveAssemblyReference.cache
+E:\Documents\Visual Studio 2017\Projects\OLD.EPAM.TASK\EPAM.TASK\WriteDataOfPerson\bin\Debug\WriteDataOfPerson.dll
+E:\Documents\Visual Studio 2017\Projects\OLD.EPAM.TASK\EPAM.TASK\WriteDataOfPerson\bin\Debug\WriteDataOfPerson.pdb
+E:\Documents\Visual Studio 2017\Projects\OLD.EPAM.TASK\EPAM.TASK\WriteDataOfPerson\bin\Debug\Person.dll
+E:\Documents\Visual Studio 2017\Projects\OLD.EPAM.TASK\EPAM.TASK\WriteDataOfPerson\bin\Debug\Exceptions.dll
+E:\Documents\Visual Studio 2017\Projects\OLD.EPAM.TASK\EPAM.TASK\WriteDataOfPerson\bin\Debug\Person.pdb
+E:\Documents\Visual Studio 2017\Projects\OLD.EPAM.TASK\EPAM.TASK\WriteDataOfPerson\bin\Debug\Exceptions.pdb
+E:\Documents\Visual Studio 2017\Projects\OLD.EPAM.TASK\EPAM.TASK\WriteDataOfPerson\obj\Debug\WriteDataOfPerson.dll
+E:\Documents\Visual Studio 2017\Projects\OLD.EPAM.TASK\EPAM.TASK\WriteDataOfPerson\obj\Debug\WriteDataOfPerson.pdb

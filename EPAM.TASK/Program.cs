@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+using ChoosePath;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -11,7 +13,11 @@ namespace EPAM.TASK
     {
         static void Main(string[] args)
         {
-            WorkWithFile file = new WorkWithFile();
+            //WorkWithFile file = new WorkWithFile();
+            ChoosePathForFile f = new ChoosePathForFile();
+            string temp = f.ChoosePath();
+            Console.WriteLine(temp);
+
         }
     }
 }
